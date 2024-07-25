@@ -14,7 +14,7 @@ public record CustomerService(
 ) {
 
     public static final String FRAUD_CHECK_ENDPOINT = "/api/v1/fraud-check/";
-    public static final String DEFAULT_API_URL = "http://localhost:8081";
+    public static final String DEFAULT_API_URL = "http://FRAUD";
 
     public Customer register(RegisterCustomerRequest request) {
         Customer customer = Customer.builder()
