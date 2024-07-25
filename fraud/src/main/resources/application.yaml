@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: customer
+    name: fraud
   datasource:
     url: jdbc:postgresql://localhost:5432/fraud
     username: 'microservices'
