@@ -5,6 +5,8 @@ import com.microservices.clients.fraud.FraudCheckResponse;
 import com.microservices.clients.fraud.FraudClient;
 import com.microservices.model.Customer;
 import com.microservices.repository.CustomerRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,6 +16,8 @@ public record CustomerService(
     RestTemplate restTemplate,
     FraudClient fraudClient
 ) {
+
+    private static final Logger log = LoggerFactory.getLogger(CustomerService.class);
 
     public Customer register(RegisterCustomerRequest request) {
         Customer customer = Customer.builder()
@@ -27,7 +31,7 @@ public record CustomerService(
         // todo: check unique
 
         FraudCheckResponse fraudCheckResponse = fraudClient.isFraudster(customer.getId());
-
+        log.info("Got response from fraud: {}", fraudCheckResponse);
         if (fraudCheckResponse != null && fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("Fraudster");
         }

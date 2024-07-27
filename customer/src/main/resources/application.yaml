@@ -16,6 +16,10 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
 eureka:
   client:
     service-url:
