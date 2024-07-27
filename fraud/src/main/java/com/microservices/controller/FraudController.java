@@ -1,6 +1,6 @@
 package com.microservices.controller;
 
-import com.microservices.api.FraudCheckResponse;
+import com.microservices.clients.fraud.FraudCheckResponse;
 import com.microservices.service.FraudCheckService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
