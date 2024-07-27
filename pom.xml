@@ -13,6 +13,7 @@
     <module>customer</module>
     <module>fraud</module>
     <module>eureka-server</module>
+    <module>clients</module>
   </modules>
 
   <properties>
@@ -50,6 +51,11 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-openfeign</artifactId>
+      <version>3.1.6</version>
     </dependency>
   </dependencies>
 
