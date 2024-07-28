@@ -10,12 +10,10 @@ import com.microservices.repository.CustomerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 public record CustomerService(
     CustomerRepository customerRepository,
-    RestTemplate restTemplate,
     FraudClient fraudClient,
     NotificationClient notificationClient
 ) {
@@ -38,6 +36,7 @@ public record CustomerService(
         if (fraudCheckResponse != null && fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("Fraudster");
         }
+        // todo: make it async and add to queue
         NotificationRequest notificationRequest = new NotificationRequest(
             customer.getId(),
             customer.getFirstName(),
