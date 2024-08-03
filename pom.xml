@@ -15,6 +15,7 @@
     <module>eureka-server</module>
     <module>clients</module>
     <module>notifiaction</module>
+    <module>ampq</module>
   </modules>
 
   <properties>
