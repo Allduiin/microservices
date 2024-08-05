@@ -2,14 +2,14 @@ package com.microservices.customer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication(scanBasePackages = {
     "com.microservices.customer",
     "com.microservices.amqp"
 })
-@EnableDiscoveryClient
+@EnableEurekaClient
 @EnableFeignClients(basePackages = "com.microservices.clients")
 public class CustomerApplication {
     public static void main(String[] args) {
